@@ -1,0 +1,8 @@
+python-docx>=0.8.11
+lxml>=4.6
+
+# 仅当你需要把脚本打包成 exe 时才安装
+pyinstaller>=5.0
+
+# 可选：Windows 上自动把 .doc 转成 .docx（需已安装 Microsoft Word）
+# pypiwin32; sys_platform == "win32"
