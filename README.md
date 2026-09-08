@@ -1,4 +1,4 @@
-# WordFormat —— Word 论文/公文格式一键排版工具
+# WordFormatPaper —— Word 论文/公文格式一键排版工具
 
 一个零配置、可打包成 exe 的开源小工具。把 `.docx` 丢进去，一键套用统一的中文论文/公文排版规范：
 正文、各级标题、脚注、页码、图表题注、字色，全部一次到位。
@@ -30,9 +30,9 @@
 
   | 原文 | 处理后 | 字体 |
   |---|---|---|
-  | `“The ‘Concept’ of Communication”` | `“The ‘Concept’ of Communication”` | 弯引号 + Times New Roman（视觉半角） |
-  | `"A Conceptual Model for Communications Research"` | `“A Conceptual Model for Communications Research”` | 弯引号 + Times New Roman |
-  | `“国际传播”` | `“国际传播”` | 全角 + 宋体 |
+  | `“The ‘Concept’”` | `“The ‘Concept’”` | 弯引号 + Times New Roman（视觉半角） |
+  | `"A Conceptual Model"` | `“A Conceptual Model”` | 弯引号 + Times New Roman |
+  | `“关键词”` | `“关键词”` | 全角 + 宋体 |
 
   书名号、顿号、逗号等纯中文标点始终用中文字体，不会出现「正文是宋体、标点却是 Times New Roman」的割裂效果。
   详见 [西文引文自动转半角引号](#西文引文自动转半角引号)。
@@ -171,11 +171,11 @@ format_document("in.docx", "out.docx", profile={"body": {"size": "三号"}})
 
 | 处理前 | 处理后（smart，默认） | 处理后（straight） |
 |---|---|---|
-| `“The ‘Concept’ of Communication”` | `“The ‘Concept’ of Communication”` | `"The 'Concept' of Communication"` |
-| `"A Conceptual Model for Communications Research"` | `“A Conceptual Model for Communications Research”` | `"A Conceptual Model for Communications Research"` |
-| `'An Extension of the "Lasswell Formula",'` | `‘An Extension of the “Lasswell Formula”,’` | `'An Extension of the "Lasswell Formula",'` |
-| `“国际传播”` | `“国际传播”`（不变） | `“国际传播”`（不变） |
-| `“2023—2024”` | `“2023—2024”`（不变，纯数字不算西文） | 同左 |
+| `“The ‘Concept’”` | `“The ‘Concept’”` | `"The 'Concept'"` |
+| `"A Conceptual Model"` | `“A Conceptual Model”` | `"A Conceptual Model"` |
+| `'A "Formula",'` | `‘A “Formula”,’` | `'A "Formula",'` |
+| `“关键词”` | `“关键词”`（不变） | `“关键词”`（不变） |
+| `“2025—2026”` | `“2025—2026”`（不变，纯数字不算西文） | 同左 |
 
 四种风格怎么选：
 
@@ -200,9 +200,9 @@ format_document("in.docx", "out.docx", profile={"body": {"size": "三号"}})
 默认：**小四（跟随正文字号）、上标、Times New Roman、黑色**，且序号与正文之间不留空格。
 
 ```
-处理前    ……族主义和意识形态。 40 41 另有他说。
-处理后    ……族主义和意识形态。40 41另有他说。
-          （40 后的空格删掉；40 与 41 之间的空格保留 1 个，否则会变成 4041）
+处理前    ……关键词。 1 2 另有他说。
+处理后    ……关键词。1 2另有他说。
+          （1 后的空格删掉；1 与 2 之间的空格保留 1 个，否则会变成 12）
 ```
 
 细节：
